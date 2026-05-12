@@ -1,0 +1,19 @@
+if(CONFIG_CUSTOM_LITTLEFS)
+
+zephyr_library()
+
+zephyr_library_sources(
+    lfs.c
+    lfs_util.c
+)
+
+zephyr_include_directories(
+    .
+    ${ZEPHYR_BASE}/modules/littlefs
+)
+
+zephyr_compile_definitions(
+    LFS_CONFIG=zephyr_lfs_config.h
+)
+
+endif()
